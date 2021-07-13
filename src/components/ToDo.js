@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 
 function ToDo(props) {
-  return <h5>{props.name}</h5>;
+  let isDone = props.data.isDone ? { textDecoration: "line-through" } : {};
+
+  function toggle() {
+    props.toggleTodo(props.dataKey);
+  }
+  return (
+    <li style={isDone} onClick={toggle}>
+      {props.data.text}
+    </li>
+  );
 }
 
 export default ToDo;
